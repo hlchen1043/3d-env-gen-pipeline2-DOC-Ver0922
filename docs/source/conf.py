@@ -17,14 +17,25 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
+        "myst_parser"
+    # "sphinx_rtd_theme",  # optional theme
 ]
-
+# Let Sphinx treat .md as docs
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".md": "markdown",
+}
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
 }
 intersphinx_disabled_domains = ['std']
-
+# Optional MyST knobs
+myst_enable_extensions = [
+    "colon_fence",      # ::: fenced blocks
+    "linkify",          # auto-URL linking
+    "deflist", "tasklist"
+]
 templates_path = ['_templates']
 
 # -- Options for HTML output
